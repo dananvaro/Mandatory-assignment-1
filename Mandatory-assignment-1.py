@@ -1,24 +1,15 @@
 import re
-
+import InputChecker
 
 class BankAccount:
 
     # Default Atrributes
 
     def __init__(self, account_holder, balance):
-        
-        if not isinstance(account_holder,str):
-            raise TypeError("Account name cant consist of numbers!")
-        
-        pattern_name=r"^[A-Za-zÆØÅæøå ]+$"
-        
-        if not re.match(pattern_name, account_holder):
-            raise ValueError("Name cant consist of special characters!")
-        
-        if not isinstance(balance, (int, float)):
-            raise TypeError("Balance must be a number!")
-            
 
+        InputChecker.nameChecker(account_holder)
+        InputChecker.numberChecker(balance)
+        
         self.account_holder = account_holder
         self.balance = balance
 
@@ -26,6 +17,9 @@ class BankAccount:
         self.balance+=amount
 
     def withdraw(self, amount):
+
+        InputChecker.balanceChecker(self.balance, amount)
+
         self.balance -= amount
 
     def account_info(self):
@@ -34,7 +28,7 @@ class BankAccount:
         return info
 
 
-account = BankAccount("Danan", 2000)
+account = BankAccount("!", 2000)
 
 print(account.account_info())
 
@@ -42,6 +36,6 @@ account.deposit(60)
 
 print(account.account_info())
 
-account.withdraw(40)
+account.withdraw(3000)
 
 print(account.account_info())
