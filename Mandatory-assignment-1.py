@@ -1,9 +1,6 @@
-import re
 import InputChecker
 
 class BankAccount:
-
-    # Default Atrributes
 
     def __init__(self, account_holder, balance):
 
@@ -14,11 +11,14 @@ class BankAccount:
         self.balance = balance
 
     def deposit(self, amount):
+
+        InputChecker.numberChecker(amount)
+        
         self.balance+=amount
 
     def withdraw(self, amount):
-
-        InputChecker.balanceChecker(self.balance, amount)
+        
+        InputChecker.balanceChecker(amount,self.balance)
 
         self.balance -= amount
 
@@ -28,14 +28,17 @@ class BankAccount:
         return info
 
 
-account = BankAccount("!", 2000)
 
-print(account.account_info())
 
-account.deposit(60)
+if __name__ == "__main__":
+    account = BankAccount("Danan", 2000)
 
-print(account.account_info())
+    print(account.account_info())
 
-account.withdraw(3000)
+    account.deposit(60)
 
-print(account.account_info())
+    print(account.account_info())
+
+    account.withdraw(1000)
+
+    print(account.account_info())
