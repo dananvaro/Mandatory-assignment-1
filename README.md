@@ -5,9 +5,9 @@ This task consists of designing and implementing a class structure using class i
 
 ## Features
 
-- `BankAccount`:
-- `SavingsAccount`:
-- `CheckingAccount`:
+- `BankAccount`: deposit, withdraw and account_info.
+- `SavingsAccount`: inherits from `BankAccount` and apply_interest.
+- `CheckingAccount`:inherits from `BankAccount` and overrides withdraw with a transaction fee.
 - Functions that checks input called `InputChecker`.
 - Test cases that covers various test cases.
 
