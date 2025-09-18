@@ -9,7 +9,7 @@ def nameChecker(name):
     If input name cosists of special characters is will a ValueError.
     '''
     if not isinstance(name,str):
-        raise ValueError("No numbers accepted!")
+        raise ValueError(f"No numbers accepted!")
     
     pattern_name=r"^[A-Za-zÆØÅæøå ]+$"
         
@@ -38,6 +38,7 @@ def balanceChecker(withdrawel,balance):
     numberChecker(withdrawel)
 
     if (withdrawel > balance):
-        print(f"Insufficant funds!")
+        print("Insufficant funds!")
         return False
     return True
+        

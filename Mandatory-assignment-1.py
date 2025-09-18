@@ -33,8 +33,6 @@ class SavingsAccount(BankAccount):
     interest_rate = 0.02
 
     def apply_interest(self):
-        
-        InputChecker.numberChecker(self.balance)
     
         self.balance *= (1 + self.interest_rate) 
 
@@ -54,18 +52,26 @@ class CheckingAccount(BankAccount):
         self.balance -= total
 
 if __name__ == "__main__":
-    account = CheckingAccount("Danan", 2000)
 
-    print(account.account_info()) 
+    ## Test cases checking the value and type errors
 
-    account.withdraw(200)
+    testCases = [
 
-    print(account.account_info())
+        ("Danan",2000),
+        (2, 2000),
+        ("1",2000),
+        ("Danan", -2000),
+        ("Danan", "hdfhdfj")
 
-    account2 = SavingsAccount("Ramtin", 2000)
+    ]
 
-    print(account2.account_info())
+    print(testCases[0][1])
+    
+    
+            
 
-    account2.apply_interest()
+    
 
-    print(account2.account_info())
+
+
+ 
