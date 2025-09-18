@@ -9,7 +9,7 @@ def nameChecker(name):
     If input name cosists of special characters is will a ValueError.
     '''
     if not isinstance(name,str):
-        raise TypeError("No numbers accepted!")
+        raise TypeError("Name must be a string!")
     
     pattern_name=r"^[A-Za-zÆØÅæøå ]+$"
         
@@ -31,7 +31,7 @@ def numberChecker(value):
 def balanceChecker(withdrawal,balance):
       
     '''
-    Checks if input withdrawel is not greater than balance. If input value is greater than the balance it return a message and False otherwise will it return True. 
+    Checks if input withdrawal is not greater than balance. If input value is greater than the balance it return a message and False otherwise will it return True. 
     The function also calls the numberChecker. 
     '''
  
