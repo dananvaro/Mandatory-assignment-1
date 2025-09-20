@@ -64,8 +64,8 @@ if __name__ == "__main__":
         (2, 2000), # Invalid input due to number "2" in String in input
         ("1",2000), # Invalid input due to number wrapped in String in input
         ("Danan", -2000), # Invalid input  due to a negative input 
-        ("Danan", "hdfhdfj") # Invalid input due to String in integer/float input
-
+        ("Danan", "hdfhdfj"), # Invalid input due to String in integer/float input
+        ("Danan", 0) # Invalid input due 0
     ]
     
     # A loop that loops through the test cases
