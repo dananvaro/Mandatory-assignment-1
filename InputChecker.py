@@ -43,11 +43,7 @@ def balanceChecker(withdrawal,balance):
     Checks if input withdrawal is not greater than balance. If input value is greater than the balance it return a message and False otherwise will it return True. 
     The function also calls the numberChecker. 
     '''
-    numberChecker(withdrawal)
-
-    if (withdrawal == 0):
-        raise ValueError("Transaction can't be 0 or negative!")
-        re
+    transactionChecker(withdrawal)
 
     if (withdrawal > balance):
         print("Insufficient funds!")

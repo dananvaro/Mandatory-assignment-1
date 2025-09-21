@@ -16,7 +16,6 @@ class BankAccount:
     def deposit(self, amount):
 
         # Checks the input is valid and not 0 or below
-        InputChecker.numberChecker(amount)
         InputChecker.transactionChecker(amount)
 
         # Updates balance
@@ -54,12 +53,11 @@ class SavingsAccount(BankAccount):
 class CheckingAccount(BankAccount):
 
     # Fixed transaction fee at 1 dollar
-    transaction_fee = 1
+    transaction_fee = 1.0
 
     def withdraw(self, amount):
 
-        # Calls a function that checks f inputted number is a number
-        InputChecker.numberChecker(amount)
+        # Calls a function that checks f inputted number is a number and is above 0
         InputChecker.transactionChecker(amount)
 
         # Combines the fixed fee and the withdrawal amount
@@ -75,7 +73,7 @@ class CheckingAccount(BankAccount):
 if __name__ == "__main__":
 
     ## Test cases checking the value and type errors
-
+    print("-------------------------------------------------------------------------")
     # A list with testcases
     testCases = [
 
@@ -107,6 +105,9 @@ if __name__ == "__main__":
 
             print("Test for error has been completed!")
 
+    
+    print("-------------------------------------------------------------------------")
+
     # Checks for Class BankAccount
     a1 = BankAccount("Sander Stenvold", 2000)
 
@@ -125,6 +126,8 @@ if __name__ == "__main__":
 
     print(a1.account_info())
 
+    print("-------------------------------------------------------------------------")
+
     # Checks for Class SavingsAccount
     a2 = SavingsAccount("Adrian Nilsen", 2000)
 
@@ -142,6 +145,8 @@ if __name__ == "__main__":
     a2.apply_interest()
 
     print(a2.account_info())
+
+    print("-------------------------------------------------------------------------")
 
     # Checks for Class SavingsAccount
     a3 = CheckingAccount("Jostein Stegane", 5000) 
