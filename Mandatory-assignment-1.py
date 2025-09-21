@@ -2,7 +2,7 @@ import InputChecker
 
 class BankAccount:
 
-    def __init__(self, account_holder, balance=0):
+    def __init__(self, account_holder, balance):
 
         # Checks if name and balance is valid
         InputChecker.nameChecker(account_holder)
@@ -25,7 +25,6 @@ class BankAccount:
 
         # Uses the balance checker function that checks in amount is a number and 
         # is bigger than the balance if amount is a invalid number it will break out of the method and not update balance
-        InputChecker.transactionChecker(amount)
 
         if not InputChecker.balanceChecker(amount,self.balance):
             return
@@ -56,8 +55,8 @@ class CheckingAccount(BankAccount):
     transaction_fee = 1.0
 
     def withdraw(self, amount):
-
-        # Calls a function that checks f inputted number is a number and is above 0
+        
+        # Checks if the amount is more than 0
         InputChecker.transactionChecker(amount)
 
         # Combines the fixed fee and the withdrawal amount
